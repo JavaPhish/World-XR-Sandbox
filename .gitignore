@@ -99,3 +99,6 @@ Assets/MRTK/Shaders/MRTK.Shaders.sentinel
 Assets/MRTK/Shaders/MRTK.Shaders.sentinel.meta
 Assets/MRTK/Shaders/Text3DShader.shader
 Assets/MRTK/Shaders/Text3DShader.shader.meta
+
+# Photon Files
+Assets/Photon/*
