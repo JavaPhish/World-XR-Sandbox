@@ -53,7 +53,6 @@ namespace Com.MyCompany.MyGame
         {
             progressLabel.SetActive(false);
             startPanel.SetActive(true);
-            Connect();
         }
         #endregion
 
@@ -83,6 +82,10 @@ namespace Com.MyCompany.MyGame
             }
         }
 
+        public void Quit()
+        {
+            Debug.Log("I see you're trying to quit...");
+        }
 
         // ##### Create Methods for Host, Join with ID, and Join Random #####
 
@@ -117,6 +120,15 @@ namespace Com.MyCompany.MyGame
         public override void OnJoinedRoom()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+            // #Critical: We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` to sync our instance scene.
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                Debug.Log("We load the 'Sandbox' ");
+                // #Critical
+                // Load the Room Level.
+                PhotonNetwork.LoadLevel("Sandbox");
+            }
         }
     }
 }
