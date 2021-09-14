@@ -1448,7 +1448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &928165177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2484,7 +2484,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1732879422}
         m_TargetAssemblyTypeName: Com.MyCompany.MyGame.Launcher, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: CloseApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

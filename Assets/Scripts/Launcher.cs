@@ -89,9 +89,10 @@ namespace Com.MyCompany.MyGame
             }
         }
 
-        public void Quit()
+        public void CloseApp()
         {
             Debug.Log("I see you're trying to quit...");
+            Application.Quit();
         }
 
         // ##### Create Methods for Host, Join with ID, and Join Random #####
