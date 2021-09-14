@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -10,6 +11,17 @@ namespace Com.MyCompany.MyGame
 {
     public class RoomManager : MonoBehaviourPunCallbacks
     {
+        #region Public Feilds
+        [SerializeField]
+        private GameObject roomID;
+        #endregion
+
+
+        void Start()
+        {
+            roomID.GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
+        }
+
         #region Photon Callbacks
         /// <summary>
         /// Called when the local player left the room. We need to load the launcher scene.

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -8,12 +9,15 @@ namespace Com.MyCompany.MyGame
     public class Launcher : MonoBehaviourPunCallbacks
     {
         #region Public Fields
-        [Tooltip("The Ui Panel to let the user enter name, connect and play")]
+        [Tooltip("The UI Panel to let the user enter name, connect and play")]
         [SerializeField]
         private GameObject startPanel;
         [Tooltip("The UI Label to inform the user that the connection is in progress")]
         [SerializeField]
         private GameObject progressLabel;
+        [SerializeField]
+        private GameObject nameInputField;
+        private string roomName = "null";
         #endregion
 
 
@@ -96,8 +100,35 @@ namespace Com.MyCompany.MyGame
         }
 
         // ##### Create Methods for Host, Join with ID, and Join Random #####
+        public void Host()
+        {
+            progressLabel.SetActive(true);
+            startPanel.SetActive(false);
 
+            roomName = nameInputField.GetComponent<Text>().text + RandomString(3);
 
+            // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+            }
+            else
+            {
+                // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
+                // #Critical, we must first and foremost connect to Photon Online Server.
+                isConnecting = PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.GameVersion = gameVersion;
+            }
+        }
+
+        public string RandomString(int length)
+        {
+            const string chars = "ABC0123456789";
+            string myString = "";
+            for(int i = 0; i<length; i++)
+                myString += chars[Random.Range(0, chars.Length)];
+            return myString;
+        }
         #endregion
 
 
@@ -123,14 +154,14 @@ namespace Com.MyCompany.MyGame
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
             isConnecting = false;
         }
-        #endregion
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
             Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
 
             // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-            PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+            roomName = "Room" + RandomString(3);
+            PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
         }
 
         public override void OnJoinedRoom()
@@ -145,6 +176,7 @@ namespace Com.MyCompany.MyGame
                 // Load the Room Level.
                 PhotonNetwork.LoadLevel("Sandbox");
             }
+        #endregion
         }
     }
 }
