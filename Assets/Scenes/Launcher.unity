@@ -1862,7 +1862,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1732879422}
         m_TargetAssemblyTypeName: Com.MyCompany.MyGame.Launcher, Assembly-CSharp
-        m_MethodName: Connect
+        m_MethodName: Host
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2821,6 +2821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPanel: {fileID: 1263848659}
   progressLabel: {fileID: 928165176}
+  nameInputField: {fileID: 1784422995}
   maxPlayersPerRoom: 4
 --- !u!1 &1753579725
 GameObject:
