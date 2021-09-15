@@ -57,7 +57,6 @@ using Photon.Realtime;
             // #Critical
             // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
             PhotonNetwork.AutomaticallySyncScene = true;
-            DontDestroyOnLoad(this.gameObject);
         }
 
         /// <summary>
@@ -101,20 +100,16 @@ using Photon.Realtime;
         }
 
         // ##### Create Methods for Host, Join with ID, and Join Random #####
-        public void SetUp()
-        {
-            SceneManager.LoadScene(1);
-        }
-
-        public void Host(string anchorID)
+        public void Host()
         {
             roomName = nameInputField.GetComponent<Text>().text + RandomString(3);
+            pickScene = "Host";
             RoomOptions roomops = new RoomOptions()
             {
                 MaxPlayers = maxPlayersPerRoom
             };
             Hashtable roomTable = new Hashtable();
-            roomTable.Add("Anchor", anchorID);
+            roomTable.Add("Anchor", "null");
 
             // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
             if (PhotonNetwork.IsConnected)

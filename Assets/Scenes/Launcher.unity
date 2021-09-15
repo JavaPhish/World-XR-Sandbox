@@ -1792,7 +1792,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1732879422}
         m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
-        m_MethodName: SetUp
+        m_MethodName: Host
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

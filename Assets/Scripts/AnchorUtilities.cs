@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.Azure.SpatialAnchors;
 using Microsoft.Azure.SpatialAnchors.Unity;
 
+using Photon.Pun;
+using Photon.Realtime;
+
 #if WINDOWS_UWP || UNITY_WSA
 using UnityEngine.XR.WindowsMR;
 #endif
@@ -29,8 +32,6 @@ public class AnchorUtilities : MonoBehaviour
     public SpatialAnchorManager cloudManager;
     // The object that will visually represent a spatial anchor
     public GameObject anchorObject = null;
-
-    public Launcher PUNLauncher;
 
     private GameObject anchor = null;
 
@@ -127,6 +128,7 @@ public class AnchorUtilities : MonoBehaviour
 
         //  !!! DO THIS SO WE CAN SEND THE ID TO OTHER USERS! !!!
         // TODO - SOMETHING LIKE THIS -> uploadAnchorIDtoPhoton(cloudAnchor.Identifier);
-        PUNLauncher.Host(cloudAnchor.Identifier);
+        PhotonNetwork.CurrentRoom.CustomProperties["Anchor"] = cloudAnchor.Identifier;
+        PhotonNetwork.LoadLevel("Join");
     }
 }
