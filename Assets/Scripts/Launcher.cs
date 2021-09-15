@@ -17,7 +17,10 @@ namespace Com.MyCompany.MyGame
         private GameObject progressLabel;
         [SerializeField]
         private GameObject nameInputField;
+        [SerializeField]
+        private GameObject iDInputField;
         private string roomName = "null";
+        private string pickScene = "Join";
         #endregion
 
 
@@ -75,9 +78,6 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         public void Connect()
         {
-            progressLabel.SetActive(true);
-            startPanel.SetActive(false);
-
             // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
             if (PhotonNetwork.IsConnected)
             {
@@ -102,15 +102,32 @@ namespace Com.MyCompany.MyGame
         // ##### Create Methods for Host, Join with ID, and Join Random #####
         public void Host()
         {
-            progressLabel.SetActive(true);
-            startPanel.SetActive(false);
-
             roomName = nameInputField.GetComponent<Text>().text + RandomString(3);
+            pickScene = "Host";
 
             // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
             if (PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+            }
+            else
+            {
+                // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
+                // #Critical, we must first and foremost connect to Photon Online Server.
+                isConnecting = PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.GameVersion = gameVersion;
+            }
+        }
+
+        public void Join()
+        {
+            roomName = iDInputField.GetComponent<Text>().text;
+            pickScene = "Join";
+
+            // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.JoinRoom(roomName);
             }
             else
             {
@@ -171,10 +188,10 @@ namespace Com.MyCompany.MyGame
             // #Critical: We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` to sync our instance scene.
             if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
-                Debug.Log("We load the 'Sandbox' ");
+                Debug.Log("We load the " + pickScene);
                 // #Critical
                 // Load the Room Level.
-                PhotonNetwork.LoadLevel("Sandbox");
+                PhotonNetwork.LoadLevel("" + pickScene);
             }
         #endregion
         }
