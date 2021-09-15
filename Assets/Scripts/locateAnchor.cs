@@ -34,6 +34,7 @@ public class locateAnchor : MonoBehaviour
     {
         /* Initialize the anchor location criteria, and specify the rooms anchor identifier */
         anchorLocateCriteria = new AnchorLocateCriteria();
+
         // Tell the manager what to do when an anchor is detected
         GetComponent<SpatialAnchorManager>().AnchorLocated += CloudManager_AnchorLocated;
         anchorLocateCriteria.Identifiers = new string[] {getAnchorID()};
