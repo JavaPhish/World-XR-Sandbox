@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Launcher.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Join.unity
-    guid: b01bcc3a8e704724b8ed326e3d6d0a20
-  - enabled: 0
     path: Assets/Scenes/Host.unity
     guid: ecf1fef21971e754091a63b6409e3296
+  - enabled: 1
+    path: Assets/Scenes/Join.unity
+    guid: b01bcc3a8e704724b8ed326e3d6d0a20
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e54b5bb6e10bc5048b893b34ba25b7bb, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 23509ee509b26a54daefd015d7179457, type: 2}
