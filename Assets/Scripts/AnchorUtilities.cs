@@ -30,6 +30,8 @@ public class AnchorUtilities : MonoBehaviour
     // The object that will visually represent a spatial anchor
     public GameObject anchorObject = null;
 
+    public Launcher PUNLauncher;
+
     private GameObject anchor = null;
 
     // Anchor location and searching stuff
@@ -125,6 +127,6 @@ public class AnchorUtilities : MonoBehaviour
 
         //  !!! DO THIS SO WE CAN SEND THE ID TO OTHER USERS! !!!
         // TODO - SOMETHING LIKE THIS -> uploadAnchorIDtoPhoton(cloudAnchor.Identifier);
+        PUNLauncher.Host(cloudAnchor.Identifier);
     }
-
 }

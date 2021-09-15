@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
 
 
-namespace Com.MyCompany.MyGame
-{
     public class Launcher : MonoBehaviourPunCallbacks
     {
         #region Public Fields
@@ -57,6 +57,7 @@ namespace Com.MyCompany.MyGame
             // #Critical
             // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
             PhotonNetwork.AutomaticallySyncScene = true;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         /// <summary>
@@ -100,15 +101,25 @@ namespace Com.MyCompany.MyGame
         }
 
         // ##### Create Methods for Host, Join with ID, and Join Random #####
-        public void Host()
+        public void SetUp()
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        public void Host(string anchorID)
         {
             roomName = nameInputField.GetComponent<Text>().text + RandomString(3);
-            pickScene = "Host";
+            RoomOptions roomops = new RoomOptions()
+            {
+                MaxPlayers = maxPlayersPerRoom
+            };
+            Hashtable roomTable = new Hashtable();
+            roomTable.Add("Anchor", anchorID);
 
             // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+                PhotonNetwork.CreateRoom(roomName, roomops);
             }
             else
             {
@@ -196,4 +207,3 @@ namespace Com.MyCompany.MyGame
         #endregion
         }
     }
-}

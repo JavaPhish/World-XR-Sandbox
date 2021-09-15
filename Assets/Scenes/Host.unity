@@ -1211,6 +1211,7 @@ MonoBehaviour:
   createProgress: 0
   cloudManager: {fileID: 1426116724}
   anchorObject: {fileID: 8454407537872980838, guid: 07bb5ed6ba719b54e8288935f0eb35db, type: 3}
+  PUNLauncher: {fileID: 2137992704}
 --- !u!4 &1426116727
 Transform:
   m_ObjectHideFlags: 0
@@ -1707,6 +1708,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907075460}
   m_CullTransparentMesh: 1
+--- !u!1 &2137992703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137992705}
+  - component: {fileID: 2137992704}
+  m_Layer: 0
+  m_Name: Launcher Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2137992704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137992703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42527ef42208d29429488ab6a1a5e2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPanel: {fileID: 0}
+  progressLabel: {fileID: 0}
+  nameInputField: {fileID: 0}
+  iDInputField: {fileID: 0}
+  maxPlayersPerRoom: 4
+--- !u!4 &2137992705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137992703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 1080, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1680476844177124542
 PrefabInstance:
   m_ObjectHideFlags: 0
