@@ -23,7 +23,7 @@ public class AnchorUtilities : MonoBehaviour
      TODO: Find a more organized/cleaner way to implement this somewhere else as it doesnt
      really need to be here */
     public Slider progressBar = null;
-    float createProgress = 0f;
+    public float createProgress = 0f;
 
     // Reference to the SAM script (REQUIRED), also manages the session and watchers.
     public SpatialAnchorManager cloudManager;
