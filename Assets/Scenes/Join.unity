@@ -365,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &78602433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchingUI: {fileID: 706191582}
-  interactUI: {fileID: 0}
+  interactUI: {fileID: 78602432}
   cloudManager: {fileID: 153803824}
   anchorObject: {fileID: 8454407537872980838, guid: 07bb5ed6ba719b54e8288935f0eb35db, type: 3}
   anchor: {fileID: 0}
@@ -1938,7 +1938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1883908737
 RectTransform:
   m_ObjectHideFlags: 0

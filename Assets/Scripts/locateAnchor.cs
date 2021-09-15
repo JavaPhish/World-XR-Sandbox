@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
-
+using Photon.Pun;
+using Photon.Realtime;
 using Microsoft.Azure.SpatialAnchors;
 using Microsoft.Azure.SpatialAnchors.Unity;
 
@@ -44,7 +45,7 @@ public class locateAnchor : MonoBehaviour
     {
         /* In the future this will pull the photon rooms associated spatial anchor ID.
         for now im just gonna use a known ID until i have an actual solution/PHOTON is setup */
-        return ("47245ad8-c4a0-44f3-adff-d059c5c109ad");
+        return (PhotonNetwork.CurrentRoom.CustomProperties["Anchor"].ToString());
     }
 
     public async void createWatcher()
