@@ -29,23 +29,21 @@ public class locateAnchor : MonoBehaviour
     public GameObject anchorObject;
     public GameObject anchor;
 
-    // public Text debug; - ignore this, for debug reasons, delete eventually
+    public Text debug;
 
     // Start is called before the first frame update
     void Start()
     {
-        /* Initialize the anchor location criteria, and specify the rooms anchor identifier */
-        anchorLocateCriteria = new AnchorLocateCriteria();
 
-        // Tell the manager what to do when an anchor is detected
-        GetComponent<SpatialAnchorManager>().AnchorLocated += CloudManager_AnchorLocated;
-        anchorLocateCriteria.Identifiers = new string[] {getAnchorID()};
     }
 
     string getAnchorID()
     {
         /* In the future this will pull the photon rooms associated spatial anchor ID.
         for now im just gonna use a known ID until i have an actual solution/PHOTON is setup */
+
+        debug.text = PhotonNetwork.CurrentRoom.CustomProperties["Anchor"].ToString();
+
         return (PhotonNetwork.CurrentRoom.CustomProperties["Anchor"].ToString());
     }
 
@@ -56,9 +54,19 @@ public class locateAnchor : MonoBehaviour
         and gathers environment data and also initializes a watcher
         which searches for anchors of given ID */
 
+        /* Initialize the anchor location criteria, and specify the rooms anchor identifier */
+        anchorLocateCriteria = new AnchorLocateCriteria();
+
+        // Tell the manager what to do when an anchor is detected
+        GetComponent<SpatialAnchorManager>().AnchorLocated += CloudManager_AnchorLocated;
+
         await cloudManager.CreateSessionAsync();
         await cloudManager.StartSessionAsync();
+        string id = getAnchorID();
+        debug.text = id;
+        anchorLocateCriteria.Identifiers = new string[] {id};
         watcher = cloudManager.Session.CreateWatcher(anchorLocateCriteria);
+        // debug.text = "Watcher created";
     }
 
     private void CloudManager_AnchorLocated(object sender, AnchorLocatedEventArgs args)

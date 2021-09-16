@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
-
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
     public class Launcher : MonoBehaviourPunCallbacks
     {
@@ -115,6 +114,7 @@ using Photon.Realtime;
             if (PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.CreateRoom(roomName, roomops);
+                PhotonNetwork.CurrentRoom.SetCustomProperties(roomTable);
             }
             else
             {

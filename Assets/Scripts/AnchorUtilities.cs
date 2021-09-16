@@ -19,6 +19,8 @@ using UnityEngine.XR.WindowsMR;
 using UnityEngine.XR.ARFoundation;
 #endif
 
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class AnchorUtilities : MonoBehaviour
 {
@@ -128,7 +130,10 @@ public class AnchorUtilities : MonoBehaviour
 
         //  !!! DO THIS SO WE CAN SEND THE ID TO OTHER USERS! !!!
         // TODO - SOMETHING LIKE THIS -> uploadAnchorIDtoPhoton(cloudAnchor.Identifier);
-        PhotonNetwork.CurrentRoom.CustomProperties["Anchor"] = cloudAnchor.Identifier;
+
+        Hashtable roomTable = new Hashtable();
+        roomTable.Add("Anchor", cloudAnchor.Identifier);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomTable);
         PhotonNetwork.LoadLevel("Join");
     }
 }
