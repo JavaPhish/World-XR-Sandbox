@@ -21,6 +21,7 @@ public class locateAnchor : MonoBehaviour
 {
     public GameObject searchingUI;
     public GameObject interactUI;
+    public GameObject sandbox;
 
     public SpatialAnchorManager cloudManager = null;
     AnchorLocateCriteria anchorLocateCriteria = null;
@@ -71,9 +72,8 @@ public class locateAnchor : MonoBehaviour
 
             // Instantiate a visual representation of the anchor
             /* TODO: Replace this with the play areas objects */
-            anchor = Instantiate(anchorObject);
-            anchor.transform.SetPositionAndRotation(anchorPose.position, anchorPose.rotation);            
-            anchor.CreateNativeAnchor();
+            sandbox.transform.SetPositionAndRotation(anchorPose.position, anchorPose.rotation);            
+            //anchor.CreateNativeAnchor();
 
             /* just changes to the game UI rather than the searching UI,
             maybe clean this later */
