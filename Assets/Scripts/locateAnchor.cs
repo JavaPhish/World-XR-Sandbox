@@ -23,16 +23,19 @@ public class locateAnchor : MonoBehaviour
     public GameObject interactUI;
     public GameObject sandbox;
 
+    //
     public SpatialAnchorManager cloudManager = null;
     AnchorLocateCriteria anchorLocateCriteria = null;
     private CloudSpatialAnchorWatcher watcher;
+
+    // Anchor instantiation (Probably delete)
     public GameObject anchorObject;
     public GameObject anchor;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     string getAnchorID()
