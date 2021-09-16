@@ -29,8 +29,6 @@ public class locateAnchor : MonoBehaviour
     public GameObject anchorObject;
     public GameObject anchor;
 
-    public Text debug;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +39,6 @@ public class locateAnchor : MonoBehaviour
     {
         /* In the future this will pull the photon rooms associated spatial anchor ID.
         for now im just gonna use a known ID until i have an actual solution/PHOTON is setup */
-
-        debug.text = PhotonNetwork.CurrentRoom.CustomProperties["Anchor"].ToString();
 
         return (PhotonNetwork.CurrentRoom.CustomProperties["Anchor"].ToString());
     }
@@ -63,10 +59,8 @@ public class locateAnchor : MonoBehaviour
         await cloudManager.CreateSessionAsync();
         await cloudManager.StartSessionAsync();
         string id = getAnchorID();
-        debug.text = id;
         anchorLocateCriteria.Identifiers = new string[] {id};
         watcher = cloudManager.Session.CreateWatcher(anchorLocateCriteria);
-        // debug.text = "Watcher created";
     }
 
     private void CloudManager_AnchorLocated(object sender, AnchorLocatedEventArgs args)
