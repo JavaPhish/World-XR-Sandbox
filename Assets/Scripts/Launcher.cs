@@ -183,7 +183,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
             Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
 
             // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-            roomName = "Room" + RandomString(3);
+            roomName = nameInputField.GetComponent<Text>().text + RandomString(3);
             PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
         }
 

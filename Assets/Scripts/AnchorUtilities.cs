@@ -66,6 +66,7 @@ public class AnchorUtilities : MonoBehaviour
         and gathers environment data */
         if (cloudManager.Session == null)
         {
+            await Task.Delay(330);
             await cloudManager.CreateSessionAsync();
             await cloudManager.StartSessionAsync();
         }

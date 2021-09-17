@@ -59,8 +59,14 @@ public class locateAnchor : MonoBehaviour
         // Tell the manager what to do when an anchor is detected
         GetComponent<SpatialAnchorManager>().AnchorLocated += CloudManager_AnchorLocated;
 
+        // yes
+        await Task.Delay(330);
+
+        /* Create session so we can interface with arcore data */
         await cloudManager.CreateSessionAsync();
         await cloudManager.StartSessionAsync();
+
+        // Initialize the watcher to look for the anchor associated with the room
         string id = getAnchorID();
         anchorLocateCriteria.Identifiers = new string[] {id};
         watcher = cloudManager.Session.CreateWatcher(anchorLocateCriteria);
