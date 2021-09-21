@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1448885906378817527}
   - component: {fileID: 1448885906378817480}
   - component: {fileID: 2688685866542816690}
-  - component: {fileID: 4874418712685560308}
+  - component: {fileID: 329315958925974152}
   m_Layer: 0
   m_Name: SpawnableSword
   m_TagString: Untagged
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
---- !u!64 &4874418712685560308
-MeshCollider:
+--- !u!65 &329315958925974152
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -209,7 +209,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: d60cce91a76f0aa47a7a451494bde0e2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0013583626, y: 0.00043071632, z: 0.010191612}
+  m_Center: {x: -0.0000030170777, y: -0.000026461763, z: 0.0028419571}

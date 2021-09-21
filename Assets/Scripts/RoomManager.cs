@@ -19,7 +19,7 @@ namespace Com.MyCompany.MyGame
 
         void Start()
         {
-            roomID.GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
+            roomID.GetComponent<Text>().text = "Room ID: " + PhotonNetwork.CurrentRoom.Name;
         }
 
         #region Photon Callbacks

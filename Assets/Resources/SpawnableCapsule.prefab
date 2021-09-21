@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 1448885906378817482, guid: 6621863c653321d4e9f1c71ed3ac5853, type: 3}
+  hostTransform: {fileID: 5648063320555538354}
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
