@@ -19,8 +19,9 @@ Only works on Android devices with AR capability
 ## Usage
 
 Host - Creates a room/session to instantiate and interact with objects.\
-Join - Joins a room/session based on the room ID from the hosted session.\
-Follow on screen prompts for more information.\
+Join - Joins a room/session based on the room ID from the hosted session.
+
+Follow on screen prompts for more information.
 
 Connect to a room with others to interact with 3D AR objects in real time.\
 Object creation and manipulation, including movement, rotation, and scaling, is updated and synced across everyone in the room.
@@ -32,7 +33,7 @@ Mixed Reality Toolkit-Unity - [MRTK](https://github.com/microsoft/MixedRealityTo
 
 ## Authors & Acknowledgement
 
-Carter Clements @ https://github.com/JavaPhish\
+Carter Clements @ https://github.com/JavaPhish \
 Mitchell Moscovics @ https://github.com/mmoscovics
 
 Mentor: Eric Wilson - Mixed Reality Developer from [SphereGen](https://www.spheregen.com/?gclid=CjwKCAjwhaaKBhBcEiwA8acsHBuNKis23PG-9ShEze102cEGvanU1sbW8fNLO4F9BXxOBV_ORKrh1hoCPSEQAvD_BwE)
