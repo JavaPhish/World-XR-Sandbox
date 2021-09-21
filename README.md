@@ -6,36 +6,36 @@ An XR demo that lets Users interact with AR props in the real world. Using Azure
 
 ## Description
 
-* This project was created to meet the requirements of Holbertons AR/VR Specializations Final Portfolio Project.
-* We worked in partner with SphereGen, they provided a concept and mentored us allowing us to create a functional product with real world application, as well as providing assistance when discussing concepts frameworks and troubleshooting.
-* Initially created with only an MVP in mind to understand concepts and functionality of XR Networking.
+This project was created to meet the requirements of Holbertons AR/VR Specializations Final Portfolio Project.\
+We worked in partner with SphereGen, they provided a concept and mentored us allowing us to create a functional product with real world application, as well as providing assistance when discussing concepts frameworks and troubleshooting.\
+Initially created with only an MVP in mind to understand concepts and functionality of XR Networking.
 
 ## Installation
 
-* Download APK and source code via [releases](https://github.com/JavaPhish/World-XR-Sandbox/releases/tag/v1.0-android)
-* Make sure to allow camera access
-* Only works on Android devices with AR capability
+Download APK and source code via [releases](https://github.com/JavaPhish/World-XR-Sandbox/releases/tag/v1.0-android)\
+Make sure to allow camera access\
+Only works on Android devices with AR capability
 
 ## Usage
 
-* Host - Creates a room/session to instantiate and interact with objects.
-* Join - Joins a room/session based on the room ID from the hosted session.
-* Follow on screen prompts for more information.
+Host - Creates a room/session to instantiate and interact with objects.\
+Join - Joins a room/session based on the room ID from the hosted session.\
+Follow on screen prompts for more information.\
 
-* Connect to a room with others to interact with 3D AR objects in real time.
-* Object creation and manipulation, including movement, rotation, and scaling, is updated and synced across everyone in the room.
+Connect to a room with others to interact with 3D AR objects in real time.\
+Object creation and manipulation, including movement, rotation, and scaling, is updated and synced across everyone in the room.
 
 ## Assets
 
-* photon unity networking 2 - [PUN 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
-* Mixed Reality Toolkit-Unity - [MRTK](https://github.com/microsoft/MixedRealityToolkit-Unity)
+photon unity networking 2 - [PUN 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)\
+Mixed Reality Toolkit-Unity - [MRTK](https://github.com/microsoft/MixedRealityToolkit-Unity)
 
 ## Authors & Acknowledgement
 
-* Carter Clements @ https://github.com/JavaPhish
-* Mitchell Moscovics @ https://github.com/mmoscovics
+Carter Clements @ https://github.com/JavaPhish\
+Mitchell Moscovics @ https://github.com/mmoscovics
 
-Mentor: Eric Wilson - Mixed Reality Developer from [SphereGen](https://www.spheregen.com/?gclid=CjwKCAjwhaaKBhBcEiwA8acsHO1QE0jO1Nf-D7wx5VLw0QRFLD9YPpGIAlpFHfce6AomEJK_4bXiQhoC2OUQAvD_BwE)
+Mentor: Eric Wilson - Mixed Reality Developer from [SphereGen](https://www.spheregen.com/?gclid=CjwKCAjwhaaKBhBcEiwA8acsHBuNKis23PG-9ShEze102cEGvanU1sbW8fNLO4F9BXxOBV_ORKrh1hoCPSEQAvD_BwE)
 
 ## Project Status
 
